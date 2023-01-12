@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import twitterLogo from './assets/twitter-logo.svg'
+
 import { Program, AnchorProvider, web3 } from '@project-serum/anchor'
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js'
 import './App.css'
@@ -9,10 +9,6 @@ import kp from './keypair.json'
 
 import { Buffer } from 'buffer'
 window.Buffer = Buffer
-
-// Constants
-const TWITTER_HANDLE = '_buildspace'
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`
 
 const { SystemProgram } = web3
 // Create a keypair for the account that will hold the GIF data.
@@ -244,15 +240,6 @@ const App = () => {
           {!walletAddress && renderNotConnectedContainer()}
           {/* We just need to add the inverse here! */}
           {walletAddress && renderConnectedContainer()}
-        </div>
-        <div className='footer-container'>
-          <img alt='Twitter Logo' className='twitter-logo' src={twitterLogo} />
-          <a
-            className='footer-text'
-            href={TWITTER_LINK}
-            target='_blank'
-            rel='noreferrer'
-          >{`built on @${TWITTER_HANDLE}`}</a>
         </div>
       </div>
     </div>
